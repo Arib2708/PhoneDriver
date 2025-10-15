@@ -46,8 +46,8 @@ source phonedriver/bin/activate
 Install Python Deps
 
 ```bash
-# Install transformers from source for latest Qwen3-VL support
 pip install git+https://github.com/huggingface/transformers
+# pip install transformers==4.57.0 # currently, V4.57.0 is not released
 
 # Install other requirements
 pip install pillow gradio qwen_vl_utils requests
@@ -70,12 +70,29 @@ You should see your device listed.
 Edit `qwen_vl_agent.py` to choose your model:
 
 ```python
-# For 30B model
-model_name: str = "Qwen/Qwen3-VL-30B-A3B-Instruct"
+# For 4B model
+model_name: str = "Qwen/Qwen3-VL-4B-Instruct"
 
 # For 8B model 
-# Uncomment this line and comment out the 30B line above:
 #model_name: str = "Qwen/Qwen3-VL-8B-Instruct"
+```
+
+### If you want to try a Qwen3 MoE model, you need to change the import in `qwen_vl_agent.py` to the following:
+
+```python
+#from transformers import Qwen3VLForConditionalGeneration, AutoProcessor  - Comment this import out, it is for the Dense models
+from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor - Uncomment this import only for the MoE Variants!!!
+```
+
+You will also need to change line 61: 
+
+```python
+        self.model = Qwen3VLForConditionalGeneration.from_pretrained(
+```
+Change it to:
+
+```python
+        self.model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
 ```
 
 ### Screen Resolution
