@@ -6,7 +6,8 @@ from typing import Any, Dict, List, Optional
 
 import torch
 from PIL import Image
-from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor
+from transformers import Qwen3VLForConditionalGeneration, AutoProcessor  # NOT MoeFor
+#from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor - This is only for the MoE Variants!!!
 from qwen_vl_utils import process_vision_info
 import warnings
 
@@ -23,7 +24,7 @@ class QwenVLAgent:
 
     def __init__(
         self,
-        model_name: str = "Qwen/Qwen3-VL-30B-A3B-Instruct",
+        model_name: str = "Qwen/Qwen3-VL-8B-Instruct",
         device_map: str = "auto",
         dtype: Optional[torch.dtype] = None,
         use_flash_attention: bool = False,
@@ -57,11 +58,11 @@ class QwenVLAgent:
             except Exception:
                 logging.warning("flash_attn not installed; using default attention")
 
-        self.model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
+        self.model = Qwen3VLForConditionalGeneration.from_pretrained(
             model_name, **model_kwargs
         )
         self.processor = AutoProcessor.from_pretrained(model_name)
-
+        # For MoE Models You need to change to self.model=Qwen3VLMoeForConditionalGeneration.from_pretrained
         # System prompt matching official format
         self.system_prompt = """# Tools
 
