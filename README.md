@@ -20,7 +20,7 @@ A Python-based mobile automation agent that uses Qwen3-VL vision-language models
 - Android device with USB debugging & Developer Mode enabled
 - ADB (Android Debug Bridge) installed
 - GPU with sufficient VRAM (Tested on 128gb Strix Halo with Qwen3-VL-30B Model)
-- The Repo is set to use the Dense Qwen3-VL 8B Model which performs very well. To swap to an MoE model, see the configuration section below 
+- The Repo is set to use the Dense Qwen3-VL 4B/8B Model which performs very well. To swap to an MoE model, see the configuration section below 
 
 ## Installation
 
@@ -81,7 +81,8 @@ model_name: str = "Qwen/Qwen3-VL-4B-Instruct"
 
 ```python
 #from transformers import Qwen3VLForConditionalGeneration, AutoProcessor  - Comment this import out, it is for the Dense models
-from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor - Uncomment this import only for the MoE Variants!!!
+# Uncomment the import below for the MoE Variants!!!
+from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor
 ```
 
 You will also need to change line 61: 
