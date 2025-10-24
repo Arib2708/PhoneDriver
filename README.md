@@ -19,7 +19,7 @@ A Python-based mobile automation agent that uses Qwen3-VL vision-language models
 - Python 3.10+
 - Android device with USB debugging & Developer Mode enabled
 - ADB (Android Debug Bridge) installed
-- GPU with sufficient VRAM (Tested on 128gb Strix Halo with Qwen3-VL-30B Model)
+- GPU with sufficient VRAM (Tested on 24gb GPU with Qwen3-VL-8B Model)
 - The Repo is set to use the Dense Qwen3-VL 4B/8B Model which performs very well. To swap to an MoE model, see the configuration section below 
 
 ## Installation
